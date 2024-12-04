@@ -97,11 +97,11 @@ function App() {
       //adds a new fighter to the team array
       const updatedTeam = [...prevTeam, fighter];
       // recalculate the total strength of the team
-      //'reduce' goes thru each fighter in the updated team array and add their stregth to the "acc" or accumulator
-      const updatedStrength = updatedTeam.reduce((acc, curr) => acc + curr.strength, 0);
+      //'reduce' goes thru each fighter in the updated team array and add their stregth
+      const updatedStrength = updatedTeam.reduce((total, current) => total + current.strength, 0);
       //recaculate the total agility of the team array
-      //silarly the reduce function sums up the total agility of the fighters of the team and accumulates a total
-      const updatedAgility = updatedTeam.reduce((acc, curr) => acc + curr.agility, 0);
+      //silarly the reduce function sums up the total agility of the fighters of the team 
+      const updatedAgility = updatedTeam.reduce((total, current) => total + current.agility, 0);
       //update the total strength and agility states
       setTotalStrength(updatedStrength);
       setTotalAgility(updatedAgility);
@@ -140,7 +140,7 @@ function App() {
         <p>Team Agility: {isTotalAgility}</p>
       </div>
 {/* dispaly team here */}
-      <h2>Your Team</h2>
+      <h2>Taihlor's Fighters</h2>
       <div>
         {/* display some filler text until the first team member is selected */}
         {isTeam.length === 0 ? (
@@ -148,7 +148,7 @@ function App() {
         ) : (
           <ul>
             {isTeam.map((fighter, index) => (
-              <li key={index} className="team-member">
+              <li key={index} className="my-fighter">
                 <img src={fighter.img} alt={fighter.name} />
                 <div>
                   <h3>{fighter.name}</h3>
